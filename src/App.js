@@ -10,12 +10,7 @@ const App = () => (
   <>
     <ul>
       <li>
-        <NavLink
-          exact
-          to="/"
-          className="NavLink"
-          activeClassName="ActiveNavLink"
-        >
+        <NavLink to="/" className="NavLink" activeClassName="ActiveNavLink">
           Home
         </NavLink>
       </li>
@@ -32,8 +27,9 @@ const App = () => (
 
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route path="/movies" component={MoviesPage} />
+
       <Route path="/movies/:movieId" component={MovieDetailsPage} />
+      <Route path="/movies" component={MoviesPage} />
       <Route component={NotFoundPage} />
     </Switch>
   </>

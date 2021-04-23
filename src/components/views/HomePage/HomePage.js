@@ -1,11 +1,3 @@
-// import React from 'react';
-
-// const HomePage = () => {
-//   return <h1>Это домашняя страница</h1>;
-// };
-
-// export default HomePage;
-
 import React, { Component } from 'react';
 import Movies from '../../../services/moviesApi';
 import MovieList from '../../MoviesList/MoviesList';

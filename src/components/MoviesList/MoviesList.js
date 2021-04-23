@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const MovieList = ({ data, location }) => {
   return (
@@ -22,4 +22,4 @@ const MovieList = ({ data, location }) => {
   );
 };
 
-export default MovieList;
+export default withRouter(MovieList);

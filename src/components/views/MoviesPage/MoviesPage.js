@@ -1,11 +1,3 @@
-// import React from 'react';
-
-// const MoviesPage = () => {
-//   return <h1>Это страница поиска фильмов по ключевому слову</h1>;
-// };
-
-// export default MoviesPage;
-
 import React, { Component } from 'react';
 import MovieList from '../../MoviesList/MoviesList';
 import Movies from '../../../services/moviesApi';
