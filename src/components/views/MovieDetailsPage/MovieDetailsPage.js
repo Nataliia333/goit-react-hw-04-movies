@@ -4,6 +4,8 @@ import Movies from '../../../services/moviesApi';
 import Cast from '../../Cast/Cast';
 import Reviews from '../../Reviews/Reviews';
 
+import styles from './MovieDetailsPage.module.css';
+
 class MovieDetailsPage extends Component {
   state = {
     poster_path: null,
@@ -31,8 +33,9 @@ class MovieDetailsPage extends Component {
     } = this.state;
     const { match, history, location } = this.props;
     return (
-      <div>
+      <div className={styles.MovieDetailsPage}>
         <button
+          className={styles.ButtonMovie}
           type="button"
           onClick={() => {
             history.push({
@@ -43,24 +46,29 @@ class MovieDetailsPage extends Component {
         >
           Back
         </button>
-        <div>
+        <div className={styles.MovieImagePage}>
           <img
+            className={styles.MovieImage}
             src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
             alt={title}
           />
           <div>
-            <h2>{title}</h2>
-            <p>User Score: {vote_average * 10}%</p>
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <h4>Genres</h4>
+            <h2 className={styles.MovieTitle}>{title}</h2>
+            <p className={styles.MovieTitleP}>
+              User Score: {vote_average * 10}%
+            </p>
+            <h3 className={styles.MovieOverview}>Overview</h3>
+            <p className={styles.MovieOverviewP}>{overview}</p>
+            <h4 className={styles.MovieGenres}>Genres</h4>
             {genres.map(({ id, name }) => (
-              <li key={id}>{name}</li>
+              <li className={styles.MovieGenresLi} key={id}>
+                {name}
+              </li>
             ))}
           </div>
         </div>
 
-        <ul>
+        <ul className={styles.MovieOverviewP}>
           <li>
             <NavLink
               to={{
@@ -79,6 +87,7 @@ class MovieDetailsPage extends Component {
               to={{
                 pathname: `${match.url}/reviews`,
                 search: location.search,
+
                 state: {
                   from: location.state.from,
                 },

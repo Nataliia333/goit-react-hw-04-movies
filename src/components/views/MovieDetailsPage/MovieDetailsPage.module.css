@@ -1,0 +1,55 @@
+.MovieDetailsPage {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.ButtonMovie {
+  width: 80px;
+  background-color: rgb(14, 180, 166);
+  color: #faeded;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.MovieImagePage {
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+}
+.MovieImage {
+  margin-right: 40px;
+  border-radius: 10px;
+}
+
+.MovieTitle {
+  color: rgb(14, 180, 166);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.MovieTitleP {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.MovieOverview {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.MovieOverviewP {
+  font-size: 20px;
+}
+
+.MovieGenres {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.MovieGenresLi {
+  font-size: 15px;
+  margin-bottom: 10px;
+  list-style: none;
+}

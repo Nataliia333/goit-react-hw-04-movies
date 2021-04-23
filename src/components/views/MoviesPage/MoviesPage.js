@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MovieList from '../../MoviesList/MoviesList';
 import Movies from '../../../services/moviesApi';
 
+import styles from './MoviesPage.module.css';
+
 class MoviesPage extends Component {
   state = {
     query: this.props.location.search.slice(7),
@@ -40,24 +42,24 @@ class MoviesPage extends Component {
   render() {
     return (
       <div>
-        <header className="Searchbar">
-          <form className="SearchForm">
+        <header>
+          <form className={styles.SearchForm}>
             <input
-              className="SearchForm-input"
+              className={styles.SearchFormInput}
               type="text"
               autoComplete="off"
               autoFocus
-              placeholder="Search images and photos"
+              placeholder="Search movies"
               value={this.state.query}
               onChange={this.handleChange}
             />
 
             <button
               type="submit"
-              className="SearchForm-button"
+              className={styles.SearchFormButton}
               onClick={this.handleSubmit}
             >
-              <span className="SearchForm-button-label">Search</span>
+              <span>Search</span>
             </button>
           </form>
         </header>

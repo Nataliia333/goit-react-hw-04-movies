@@ -1,0 +1,9 @@
+.Reviews {
+  list-style: none;
+  text-align: center;
+  margin: 20px;
+  padding: 40px;
+}
+.Author {
+  font-weight: 600;
+}

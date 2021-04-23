@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Movies from '../../../services/moviesApi';
 import MovieList from '../../MoviesList/MoviesList';
 
+import styles from './HomePage.module.css';
+
 class HomePage extends Component {
   state = {
     movies: [],
@@ -15,7 +17,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>Список популярных фильмов на сегодня</h1>
+        <h1 className={styles.Title}>Список популярных фильмов на сегодня</h1>
         <MovieList data={this.state.movies}></MovieList>
       </div>
     );

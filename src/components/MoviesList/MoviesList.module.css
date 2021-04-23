@@ -1,0 +1,8 @@
+.MoviesList {
+  list-style: none;
+}
+
+.MovieItem {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
