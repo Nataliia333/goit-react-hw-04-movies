@@ -7,62 +7,69 @@
 // export default MoviesPage;
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import MovieList from '../../MoviesList/MoviesList';
 import Movies from '../../../services/moviesApi';
 
 class MoviesPage extends Component {
   state = {
-    query: null,
+    query: this.props.location.search.slice(7),
     movies: [],
   };
+
+  componentDidMount() {
+    if (this.state.query !== '') {
+      this.handleSearch();
+    }
+  }
 
   handleChange = event => {
     this.setState({ query: event.currentTarget.value });
   };
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
-    const response = await Movies.getMovies(
-      '/search/movie',
-      this.state.query,
-      1,
-    );
+
+    if (this.state.query) {
+      this.handleSearch();
+      this.props.history.push({
+        ...this.props.location,
+        search: `?query=${this.state.query}`,
+      });
+    } else {
+      alert('Complete search form');
+    }
+  };
+
+  handleSearch = async () => {
+    const response = await Movies.getMovies('/search/movie', this.state.query);
     this.setState({ movies: response.results });
   };
 
   render() {
     return (
       <div>
-        <header>
-          <form>
+        <header className="Searchbar">
+          <form className="SearchForm">
             <input
+              className="SearchForm-input"
               type="text"
               autoComplete="off"
               autoFocus
-              placeholder="Search movies"
+              placeholder="Search images and photos"
+              value={this.state.query}
               onChange={this.handleChange}
             />
-            <button type="submit" onClick={this.handleSubmit}>
-              <span>Search</span>
+
+            <button
+              type="submit"
+              className="SearchForm-button"
+              onClick={this.handleSubmit}
+            >
+              <span className="SearchForm-button-label">Search</span>
             </button>
           </form>
         </header>
-
-        {this.state.movies &&
-          this.state.movies.map(({ title, id }) => (
-            <li key={id}>
-              <Link
-                to={{
-                  pathname: `${this.props.match.url}/${id}`,
-                  state: {
-                    from: this.props.location,
-                  },
-                }}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
+        <MovieList data={this.state.movies}></MovieList>
       </div>
     );
   }

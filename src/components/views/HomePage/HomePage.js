@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import Movies from '../../../services/moviesApi';
+import MovieList from '../../MoviesList/MoviesList';
 
 class HomePage extends Component {
   state = {
@@ -15,7 +16,7 @@ class HomePage extends Component {
   };
 
   async componentDidMount() {
-    const response = await Movies.getMovies('/trending/all/day', '', 1);
+    const response = await Movies.getMovies('/trending/all/day');
     this.setState({ movies: response.results });
   }
 
@@ -23,9 +24,7 @@ class HomePage extends Component {
     return (
       <div>
         <h1>Список популярных фильмов на сегодня</h1>
-        {this.state.movies.map(({ title, id }) => (
-          <li key={id}>{title}</li>
-        ))}
+        <MovieList data={this.state.movies}></MovieList>
       </div>
     );
   }

@@ -13,9 +13,20 @@ class Cast extends Component {
   render() {
     return (
       <div>
-        {this.state.cast.map(({ name, id }) => (
-          <li key={id}>{name}</li>
-        ))}
+        {this.state.cast.length === 0 ? (
+          <p>There is no information about the film</p>
+        ) : (
+          this.state.cast.map(({ name, id, character, profile_path }) => (
+            <li key={id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
+                alt={name}
+              />
+              <p>{name}</p>
+              <p>{character}</p>
+            </li>
+          ))
+        )}
       </div>
     );
   }
