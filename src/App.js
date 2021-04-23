@@ -10,7 +10,12 @@ const App = () => (
   <>
     <ul>
       <li>
-        <NavLink to="/" className="NavLink" activeClassName="ActiveNavLink">
+        <NavLink
+          exact
+          to="/"
+          className="NavLink"
+          activeClassName="ActiveNavLink"
+        >
           Home
         </NavLink>
       </li>
