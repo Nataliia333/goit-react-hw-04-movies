@@ -4,17 +4,24 @@ import HomePage from './components/views/HomePage/HomePage';
 import MoviesPage from './components/views/MoviesPage/MoviesPage';
 import MovieDetailsPage from './components/views/MovieDetailsPage/MovieDetailsPage';
 import NotFoundPage from './components/views/NotFoundPage/NotFoundPage';
+
+import './App.css';
 const App = () => (
   <>
     <ul>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className="NavLink" activeClassName="ActiveNavLink">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/">Movies</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">MovieDetails</NavLink>
+        <NavLink
+          to="/movies"
+          className="NavLink"
+          activeClassName="ActiveNavLink"
+        >
+          Movies
+        </NavLink>
       </li>
     </ul>
 
