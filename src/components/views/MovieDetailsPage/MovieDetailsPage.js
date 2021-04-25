@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Suspense, Component } from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import Movies from '../../../services/moviesApi';
 import Cast from '../../Cast/Cast';
@@ -97,10 +97,12 @@ class MovieDetailsPage extends Component {
             </NavLink>
           </li>
         </ul>
-        <Switch>
-          <Route path={`${match.path}/cast`} component={Cast} />
-          <Route path={`${match.path}/reviews`} component={Reviews} />
-        </Switch>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Switch>
+            <Route path={`${match.path}/cast`} component={Cast} />
+            <Route path={`${match.path}/reviews`} component={Reviews} />
+          </Switch>
+        </Suspense>
       </div>
     );
   }
